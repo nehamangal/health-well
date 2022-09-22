@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('partials/headerLink') %>
+        <title>Registration API - Register page</title>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <div class="container my-3">
+            <h1>Create New Account</h1>
+        </div>
+
+        <div class="container">
+            <form action="/register" method="POST" enctype="multipart/form-data" onsubmit="return validation()">
+                <div class="form-group my-2">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control inputStyle" name="name" id="name" aria-describedby="nameHelp"
+                        placeholder="Enter your Name" required>
+                    <span id="nameError" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group my-2">
+                    <label for="email">Email </label>
+                    <input type="email" class="form-control inputStyle" name="email" id="email"
+                        aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <span id="emailError" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group my-2">
+                    <label for="phone">Phone no</label>
+                    <input type="number" class="form-control inputStyle" name="phone" id="phone"
+                        aria-describedby="phoneHelp" placeholder="Enter your phone no" required>
+                    <span id="phoneError" class="text-danger font-weight-boldt"></span>
+                </div>
+
+                <div class="form-group my-2">
+                    <label for="profileImg">Upload profile image</label>
+                    <input type="file" class="form-control inputStyle" name="filename" id="profileImg" value=""
+                        required>
+                    <span id="imageError" class="text-danger font-weight-bold"></span>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control inputStyle" name="password" id="password"
+                                placeholder="Password" required>
+                            <span id="passwordError" class="text-danger font-weight-bold"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="cpassword">Confirm Password</label>
+                            <input type="password" class="form-control inputStyle" name="cpassword" id="cpassword"
+                                placeholder="Confirm Password" required>
+                            <span id="cpasswordError" class="text-danger font-weight-bold"></span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="registerBtn" class="btn btn-primary my-3" value="Register">Register</button>
+            </form>
+            <div class="text-center">
+                <p>If you have already Account! <a href="/login" class="text-primary"><strong>Login Here</strong></a>
+                </p>
+            </div>
+        </div>
+
+
+        <%- include('partials/footer') %>
+
+
+
+        <script type="text/javascript">
+            function validation(){
+
+                var name = document.getElementById('name').value;
+                if(name.length<2 && name.length>=30){
+                    document.getElementById('nameError').innerHTML="** Name length must be between 3 and 30!";
+                    return false;
+                }
+                if(!NaN(name)){
+                    document.getElementById('nameError').innerHTML="** Only chararcters are allowed!";
+                    return false;
+                }
+
+                var email = document.getElementById('email').value;
+                if(email == ''){
+                    document.getElementById('emailError').innerHTML="** Please fill the name";
+                    return false;
+                }
+
+                var phone = document.getElementById('phone').value;
+                if(isNaN(phone)){
+                    document.getElementById('phoneError').innerHTML="** Only digits are allowed";
+                    return false;
+                }
+                if(phone.length!=10){
+                    document.getElementById('phoneError').innerHTML="** Enter valid moblie no.";
+                    return false;
+                }
+
+                var image = document.getElementById('profileImg').value;
+                if(image == ''){
+                    document.getElementById('imageError').innerHTML="** Please upload the image";
+                    return false;
+                }
+
+                var password = document.getElementById('password').value;
+                if(password.length>4 && password.length<=30){
+                    document.getElementById('passwordError').innerHTML="** Password must be between 5 and 30";
+                    return false;
+                }
+
+                var cpassword = document.getElementById('cpassword').value;
+                if(cpassword.length>4 && cpassword.length<=30){
+                    document.getElementById('cpasswordError').innerHTML="** CPassword must be between 5 and 30";
+                    return false;
+                }
+
+                if(password != cpassword){
+                    document.getElementById('cpasswordError').innerHTML="** Password are not matching";
+                    return false;
+                }
+            }
+        </script>
+
+</body>
+
+</html>

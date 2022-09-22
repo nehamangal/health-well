@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+
+<link rel="stylesheet" href="/css/products.css" />
+<!-- Google Font -->
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+rel="stylesheet"
+/>
+<br><br><br><br><br><br><br>
+
+
+    <div class="wrapper">
+      <div id="search-container">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search product name here.."
+        />
+        <button id="search">Search</button>
+        <button id="search"><a href="/getdonation" style="text-decoration: none; color: #fff;">Apply for Order</a></button>
+      </div>
+      <div id="buttons">
+        <button class="button-value" onclick="filterProduct('all')">All</button>
+        <button class="button-value" onclick="filterProduct('Medicine')">
+          Medicine
+        </button>
+        <button class="button-value" onclick="filterProduct('Appliances')">
+          Appliances
+        </button>
+        <!-- <button class="button-value" onclick="filterProduct('Sample2')">
+          Sample2
+        </button>
+        <button class="button-value" onclick="filterProduct('Sample3')">
+          Sample3
+        </button> -->
+      </div>
+      <div id="products"></div>
+    </div>
+    <!-- Script -->
+    <script src="/js/donatedproducts.js"></script>
+  </body>
+</html>

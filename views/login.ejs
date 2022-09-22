@@ -1,0 +1,67 @@
+<%- include('partials/login') %>
+
+
+
+<br>
+
+        <div class="container">
+            
+
+            <form style="margin: 9rem 20rem;" action="/login" method="POST">
+                <h1 style="color: #dc8cdb;">Login Here</h1>
+                <div class="text-center my-2">
+                    <p id="reset_password_msg" class="text-danger my-3">
+                        <b><%=Msg%></b>
+                    </p>
+                </div><br><br>
+                <div class="input-group mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                      Individual
+                    </label>
+                    </div>
+        
+                    <div class="form-check">
+                        <input style="margin-left: 10rem;" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                      Organization
+                    </label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Email</span>
+                    <input type="email" class="form-control" placeholder="Enter Your Email" aria-label="Username" aria-describedby="basic-addon1" name="username" required>
+                </div>
+        
+        
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" name="password" required>
+                    <span class="input-group-text" id="basic-addon2">Password</span>
+                </div>
+        
+        
+        
+                <div class="input-group mb-3" id="submit">
+                    <!-- <input style="background-color: rgba(0, 0, 255, 0.753);" type="submit" class="form-control" value="Login"> -->
+                </div>
+                <button type="submit" id="loginBtn" class="btn btn-primary my-3" value="Login" style="background-color: #dc8cdb; border: #dc8cdb;">Login</button>
+
+                <div class="text-center my-2">
+                    <a href="/forgot_password" class="text-primary"><strong style="color: #dc8cdb;">forgot password?</strong></a>
+                </div>
+                <div class="text-center">
+                    <p>If you don't have Account! <a href="/registration" class="text-primary"><strong style="color: #dc8cdb;">Register
+                                here</strong></a>
+                    </p>
+                </div>
+            </form>
+            
+
+        </div>
+
+
+
+</body>
+
+</html>
